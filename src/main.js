@@ -58,7 +58,7 @@ const getMovies = async function() {
     if (_movie.ratings.length != 0){
     	let avg = 0;
     	for(let i = 0; i < _movie.ratings.length;i++){
-    		avg += _movie.ratings[i]
+    		avg += parseInt(_movie.ratings[i])
     	}
     	avg /= _movie.ratings.length
     	_movie.avgRating = avg
