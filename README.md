@@ -1,4 +1,6 @@
 # cMDB
+![](https://github.com/anisthesie/cmdb/blob/master/cmdb_screenshot.png)
+
 cMDB is a Blockchain based movie rating platform. You can:
 * Explore movies. You can see their poster, title, and the plot
 * Add a movie if not available
