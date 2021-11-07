@@ -61,7 +61,7 @@ const getMovies = async function() {
     		avg += parseInt(_movie.ratings[i])
     	}
     	avg /= _movie.ratings.length
-    	_movie.avgRating = avg
+    	_movie.avgRating = avg.toFixed(1)
     }
     let ur = await contract.methods.getUserRating(_title, kit.defaultAccount).call()
     if(ur != 0) 
