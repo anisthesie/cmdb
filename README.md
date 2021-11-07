@@ -11,6 +11,9 @@ cMDB is a Blockchain based movie rating platform. You can:
 
 cMDB is community driven. It means that any user can add a movie, or modify an existing one. The rating of a movie is the average rating of all the users.
 
+## Live Demo
+The website is hosted [here](https://anisthesie.github.io/cmdb/).
+
 ## Usage
 
 ### Requirements
