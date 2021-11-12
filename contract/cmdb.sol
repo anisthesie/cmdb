@@ -27,8 +27,10 @@ contract CMDb {
     // Add a rating on a movie
     // Parameters: the movie title, the user's rating
     function addRating(string memory _title, uint _rating) public {
-        if(!movies[_title].exists) return; // If the movie doesn't exist, do nothing
-        if(_rating < 0 || _rating > 10) return; // If the rating isn't on a scale of 1 to 10, do nothing
+        // if(!movies[_title].exists) return; // If the movie doesn't exist, do nothing
+        require(movies[_title].exists, "This movie does not exist");
+        // if(_rating < 0 || _rating > 10) return; // If the rating isn't on a scale of 1 to 10, do nothing
+        require(_rating > 0 || _rating < 10, "Please enter a valid rating");
         
         // If it's the user's first time rating that movie, add to the users mapping
         // If the user already rated the movie, replace his old rating with the new one
@@ -52,11 +54,15 @@ contract CMDb {
         string memory _title,
         string memory _image,
         string memory _plot ) public {
+            
+        require(bytes(_title).length > 0, "Enter a valid movie title");
+        require(bytes(_image).length > 0, "Enter a valid movie title");
+        require(bytes(_plot).length > 0, "Enter a valid movie title");
 
         movies[_title].title = _title;
         movies[_title].image = _image;
         movies[_title].plot = _plot;    
-        
+         
         if(!movies[_title].exists){
             movies[_title].exists = true;
             movieTitles[movieCount] = _title;

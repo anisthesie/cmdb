@@ -1,5 +1,7 @@
 {
   "main": "index.js",
+  "name": "cmdb",
+  "description": "cMDB is a Blockchain based movie rating platform.",
   "dependencies": {
     "@celo/contractkit": "^1.0.2",
     "bignumber.js": "^9.0.1"
