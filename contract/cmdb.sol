@@ -30,7 +30,7 @@ contract CMDb {
         // if(!movies[_title].exists) return; // If the movie doesn't exist, do nothing
         require(movies[_title].exists, "This movie does not exist");
         // if(_rating < 0 || _rating > 10) return; // If the rating isn't on a scale of 1 to 10, do nothing
-        require(_rating > 0 || _rating < 10, "Please enter a valid rating");
+        require(_rating >= 0 && _rating <= 10, "Please enter a valid rating");
         
         // If it's the user's first time rating that movie, add to the users mapping
         // If the user already rated the movie, replace his old rating with the new one
