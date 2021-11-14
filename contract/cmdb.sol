@@ -9,6 +9,7 @@ contract CMDb {
         string title; // The movie title
         string image; // A link to an image to the movie poster
         string plot; // The movie plot, a small description
+        string category;
         mapping (address => uint) ratings; // Mapping all the users to their rating
         mapping (uint => address) users;  // All the users that rated the movie, redundant but necessary for the readMovie function 
         uint ratingCount; // Size of the users mapping
@@ -53,11 +54,13 @@ contract CMDb {
     function addMovie(
         string memory _title,
         string memory _image,
-        string memory _plot ) public {
+        string memory _plot,
+        string memory _category ) public {
             
         require(bytes(_title).length > 0, "Enter a valid movie title");
-        require(bytes(_image).length > 0, "Enter a valid movie title");
-        require(bytes(_plot).length > 0, "Enter a valid movie title");
+        require(bytes(_image).length > 0, "Enter a valid movie images");
+        require(bytes(_plot).length > 0, "Enter a valid movie plot");
+        require(bytes(_category).length > 0, "Enter a valid movie category");
 
         movies[_title].title = _title;
         movies[_title].image = _image;
@@ -74,6 +77,7 @@ contract CMDb {
     // Parameters: the movie title
     function readMovie(string memory _title) public view returns (
         string memory, 
+        string memory,
         string memory, 
         uint[] memory
     ) {
@@ -89,6 +93,7 @@ contract CMDb {
         return (
             movies[_title].image,
             movies[_title].plot,
+            movies[_title].category,
             ratingsRet
         );
     }
