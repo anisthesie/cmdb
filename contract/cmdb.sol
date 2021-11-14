@@ -56,8 +56,8 @@ contract CMDb {
         string memory _plot ) public {
             
         require(bytes(_title).length > 0, "Enter a valid movie title");
-        require(bytes(_image).length > 0, "Enter a valid movie title");
-        require(bytes(_plot).length > 0, "Enter a valid movie title");
+        require(bytes(_image).length > 0, "Enter a valid movie image");
+        require(bytes(_plot).length > 0, "Enter a valid movie plot");
 
         movies[_title].title = _title;
         movies[_title].image = _image;
